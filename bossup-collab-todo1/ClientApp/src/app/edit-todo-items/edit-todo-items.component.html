@@ -3,14 +3,14 @@
         <div class="form-group col-12 col-md-8 offset-sm-0 offset-md-2">
             <mat-form-field appearance="outline">
                 <mat-label>Description</mat-label>
-                <input matInput name="TodoDescription" type="text" #TodoDescription="ngModel" [(ngModel)]="service.formData.TodoDesc" class="form-control" placeholder={{editDesc}} required>
+                <input matInput name="TodoDescription" type="text" #TodoDescription="ngModel" [(ngModel)]="editDesc" class="form-control" placeholder={{editDesc}} required>
             </mat-form-field>
         </div>
     
         <div class="form-group col-12 col-md-8 offset-sm-0 offset-md-2">
             <mat-form-field appearance="outline">
                 <mat-label>Date</mat-label>
-                <input matInput name="TodoDate" #TodoDate="ngModel" [(ngModel)]="service.formData.TodoDate" class="form-control" [matDatepicker]="picker" placeholder={{editDate}} readonly required>
+                <input matInput name="TodoDate" #TodoDate="ngModel" [(ngModel)]="editDate" class="form-control" [matDatepicker]="picker" placeholder={{editDate}} readonly required>
                 <mat-datepicker-toggle matSuffix [for]="picker">
                 </mat-datepicker-toggle>
                 <mat-datepicker #picker></mat-datepicker>
@@ -19,7 +19,7 @@
         <div class="form-group col-12 col-md-8 offset-sm-0 offset-md-2">
             <mat-form-field appearance="outline">
                 <mat-label>Time</mat-label>
-                <input matInput name="TodoTime" #TodoTime="ngModel" [(ngModel)]="service.formData.TodoTime" [ngxTimepicker]="toggleTimepicker" [format]="24" [disableClick]="true" placeholder={{editTime}} readonly >
+                <input matInput name="TodoTime" #TodoTime="ngModel" [(ngModel)]="editTime" [ngxTimepicker]="toggleTimepicker" [format]="24" [disableClick]="true" placeholder={{editTime}} readonly >
                 <ngx-material-timepicker-toggle matSuffix [for]="toggleTimepicker"></ngx-material-timepicker-toggle>
                 <ngx-material-timepicker #toggleTimepicker></ngx-material-timepicker>
             </mat-form-field>

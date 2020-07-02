@@ -15,8 +15,12 @@ export class TodoItemService {
     return this.http.post('https://localhost:5001/api/TodoItems', this.formData);
   }
   
+  getTodoForEdit() {
+    return this.http.get('https://localhost:5001/api/TodoItems').toPromise();
+  }
+
   refreshList(){
-    this.http.get('https://localhost:5001/api/TodoItems')
+    return this.http.get('https://localhost:5001/api/TodoItems')
     .toPromise()
     .then(res => {
       this.list = res as TodoItem[];

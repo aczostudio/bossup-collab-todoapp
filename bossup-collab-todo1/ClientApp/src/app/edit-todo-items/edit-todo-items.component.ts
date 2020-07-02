@@ -25,17 +25,26 @@ export class EditTodoItemsComponent implements OnInit {
     ,private router: Router,private acroute: ActivatedRoute) { }
 
   ngOnInit(): void {
-    //this.service.refreshList(this.list);
-    this.sub = this.acroute.params.subscribe(params => {
-      this.id = +params['id'];
-      console.log("Id"+this.id);
-    });
-    this.openEdit(this.id);
+    this.openEdit();
   }
-  openEdit(openid:number): void {
-    this.editDesc.value = (this.service.list[openid].TodoDesc);
-    this.editDate.value = (this.service.list[openid].TodoDate);
-    this.editTime.value = (this.service.list[openid].TodoTime);
+
+  openEdit(): void {
+    this.service.getTodoForEdit().then(res => {
+      this.list = res as TodoItem[];
+      this.sub = this.acroute.params.subscribe(params => {
+        this.id = +params['id'];
+        console.log("Id"+this.id);
+      });
+      
+      this.list.forEach(element => {
+        if(element.TodoId == this.id){
+          this.editDesc.value = element.TodoDesc;
+          this.editDate.value = element.TodoDate;
+          this.editTime.value = element.TodoTime;
+        }
+      });
+
+    })
   }
   onEdit(): void {
     console.log("On Edit"+this.id);
