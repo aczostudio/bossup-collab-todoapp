@@ -1,13 +1,15 @@
-import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
+import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { TodoItemsComponent } from './todo-items/todo-items.component';
 import { HttpClientModule } from '@angular/common/http';
-import { TodoItemService } from './shared/todo-item.service';
 import { FormsModule } from '@angular/forms';
+import { MatDatepickerModule, matDatepickerAnimations  } from '@angular/material/datepicker';
+
+import { TodoItemService } from './shared/todo-item.service';
+
+import { AppComponent } from './app.component';
+import { TodoItemsComponent } from './todo-items/todo-items.component';
 import { CreateTodoItemsComponent } from './create-todo-items/create-todo-items.component'
 
 @NgModule({
@@ -21,10 +23,12 @@ import { CreateTodoItemsComponent } from './create-todo-items/create-todo-items.
     AppRoutingModule,
     BrowserAnimationsModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    MatDatepickerModule
   ],
   providers: [
-    TodoItemService
+    TodoItemService,
+    MatDatepickerModule
   ],
   bootstrap: [AppComponent]
 })
