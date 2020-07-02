@@ -28,7 +28,6 @@ import { CreateTodoItemsComponent } from './create-todo-items/create-todo-items.
   ],
   providers: [
     TodoItemService,
-    MatDatepickerModule
   ],
   bootstrap: [AppComponent]
 })
