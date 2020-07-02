@@ -80,7 +80,7 @@ namespace bossup_collab_todo1
                     name: "default",
                     pattern: "{controller}/{action=Index}/{id?}");
             });
-           
+            
             app.UseSpa(spa =>
             {
                 // To learn more about options for serving an Angular SPA from ASP.NET Core,
@@ -90,7 +90,7 @@ namespace bossup_collab_todo1
 
                 if (env.IsDevelopment())
                 {
-                    spa.UseAngularCliServer(npmScript: "start");
+                    spa.UseProxyToSpaDevelopmentServer("http://localhost:4200");
                 }
             });
 
