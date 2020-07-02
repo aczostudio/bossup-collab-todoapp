@@ -1,16 +1,17 @@
-﻿using System;
+﻿using bossup_collab_todo1.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
 namespace bossup_collab_todo1.Data
 {
-    public interface IRepository<T> where T : class, IEntity
+    public interface IRepository<T> where T : TodoItemEntity
     {
-        Task<List<T>> GetAll();
-        Task<T> Get(int id);
-        Task<T> Add(T entity);
-        Task<T> Update(T entity);
-        Task<T> Delete(int id);
+        IEnumerable<T> GetAll();
+        T GetById(int id);
+        void Add(T entity);
+        void Update(T entity);
+        void Delete(int id);
     }
 }

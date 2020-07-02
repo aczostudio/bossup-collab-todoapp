@@ -7,6 +7,7 @@ using Microsoft.EntityFrameworkCore;
 using bossup_collab_todo1.Data;
 using bossup_collab_todo1.Data.EFCore;
 using Microsoft.OpenApi.Models;
+using bossup_collab_todo1.Repositories;
 
 namespace bossup_collab_todo1
 {
@@ -32,7 +33,7 @@ namespace bossup_collab_todo1
             services.AddDbContext<TodoItemContext>(options =>
                     options.UseSqlServer(Configuration.GetConnectionString("TodoItemContext")));
 
-            services.AddScoped<EfCoreTodoRepository>();
+            services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
 
             services.AddSwaggerGen(c =>
             {

@@ -1,6 +1,6 @@
 export class TodoItem {
-    id: number;
-    todoDesc: String;
-    todoDate: Date;
-    todoTime: Date;
+    TodoId: number;
+    TodoDesc: string;
+    TodoDate: string;
+    TodoTime: string;
 }
